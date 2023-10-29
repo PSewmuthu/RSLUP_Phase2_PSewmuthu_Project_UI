@@ -25,16 +25,13 @@ export class LoginComponent implements OnInit {
   login() {
     this.http.get<any>('http://localhost:3000/signup').subscribe(
       (res) => {
-        const user = res.find((a: any) => {
-          return (
-            a.email === this.formValue.value.email &&
-            a.password === this.formValue.value.password
-          );
-        });
+        const user =
+          res.email === this.formValue.value.email &&
+          res.password === this.formValue.value.password;
         if (user) {
           alert('User successfull Login');
         } else {
-          alert('User Not Found');
+          alert('User not found with these credentials');
         }
       },
       (error) => {
