@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private toast: NgToastService
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +31,12 @@ export class LoginComponent implements OnInit {
           res.email === this.formValue.value.email &&
           res.password === this.formValue.value.password;
         if (user) {
-          alert('successfully logged in');
+          // alert('successfully logged in');
+          this.toast.success({
+            detail: 'Success Message',
+            summary: 'User login Successfull',
+            duration: 9000,
+          });
           this.formValue.reset();
           this.router.navigate(['restuarent']);
           localStorage.setItem(
@@ -40,11 +47,21 @@ export class LoginComponent implements OnInit {
             ? localStorage.setItem('usertype', 'employee')
             : '';
         } else {
-          alert('User not found with these credentials');
+          // alert('User not found with these credentials');
+          this.toast.error({
+            detail: 'Error Message',
+            summary: 'User not found with these credentials',
+            duration: 8000,
+          });
         }
       },
       (error) => {
-        alert('Somthing Went Wrong');
+        // alert('Somthing Went Wrong');
+        this.toast.warning({
+          detail: 'Error Message',
+          summary: 'Somthing Went Wrong',
+          duration: 8000,
+        });
       }
     );
   }
