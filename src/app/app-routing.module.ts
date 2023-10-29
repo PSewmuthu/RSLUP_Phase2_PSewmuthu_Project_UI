@@ -4,13 +4,18 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { RestuarentdashComponent } from './restuarentdash/restuarentdash.component';
 import { MaterialComponent } from './material/material.component';
+import { AuthGuard } from './share/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   // {path: '**', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'restuarent', component: RestuarentdashComponent },
+  {
+    path: 'restuarent',
+    component: RestuarentdashComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'material', component: MaterialComponent },
 ];
 
