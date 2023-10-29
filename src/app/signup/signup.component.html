@@ -6,7 +6,7 @@
           <h1>Restuarent Web App</h1>
           <strong>Get Free Membership 0</strong>
         </div>
-        <form action="">
+        <form [formGroup]="myform" (ngSubmit)="signup()">
           <div class="form-group">
             <div class="mb-3">
               <label for="exampleName">Name</label>
