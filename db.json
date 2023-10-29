@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Ashish",
+      "email": "ashish@gmail.com",
+      "mobile": 8899774455,
+      "address": "New delhi",
+      "services": "Food Service"
+    }
+  ],
+  "comments": [],
+  "signup": {
+    "name": "nimal",
+    "email": "nimal@mail.com",
+    "mobile": 7263918325,
+    "password": "password"
+  }
+}
