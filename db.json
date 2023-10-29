@@ -2,18 +2,19 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Ashish",
+      "email": "ashish@gmail.com",
+      "mobile": 8899774455,
+      "address": "New delhi",
+      "services": "Food Service"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
+  "comments": [],
+  "signup": {
+    "name": "Ashish",
+    "email": "ashish@gmail.com",
+    "mobile": 8899774455,
+    "password": "1234567890",
+    "id": 1
   }
 }
