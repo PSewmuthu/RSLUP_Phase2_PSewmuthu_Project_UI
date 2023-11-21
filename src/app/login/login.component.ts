@@ -74,4 +74,13 @@ export class LoginComponent implements OnInit {
     this.isValidEmail = pattern.test(value);
     return this.isValidEmail;
   }
+
+  confirmToSend() {
+    if (this.checkValidEmail(this.resetPasswordEmail)) {
+      console.log(this.resetPasswordEmail);
+      this.resetPasswordEmail = '';
+      const buttonRef = document.getElementById('closeBtn');
+      buttonRef?.click();
+    }
+  }
 }
