@@ -11,11 +11,13 @@ import { NgToastService } from 'ng-angular-popup';
 })
 export class LoginComponent implements OnInit {
   formValue!: FormGroup;
+  public resetPasswordEmail!: string;
+  public isValidEmail!: boolean;
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private toast: NgToastService
+    private toast: NgToastService,
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +43,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['restuarent']);
           localStorage.setItem(
             'token',
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
           );
           this.formValue.value.email
             ? localStorage.setItem('usertype', 'employee')
@@ -62,7 +64,14 @@ export class LoginComponent implements OnInit {
           summary: 'Somthing Went Wrong',
           duration: 8000,
         });
-      }
+      },
     );
+  }
+
+  checkValidEmail(event: string) {
+    const value = event;
+    const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;
+    this.isValidEmail = pattern.test(value);
+    return this.isValidEmail;
   }
 }
