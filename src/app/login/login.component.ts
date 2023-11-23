@@ -83,4 +83,22 @@ export class LoginComponent implements OnInit {
       buttonRef?.click();
     }
   }
+
+  public forgotPassword = (forgotPasswordFormValue) => {
+    this.showError = this.showSuccess = false;
+    const forgotPass = { ...forgotPasswordFormValue };
+    const forgotPassDto: ForgotPasswordDto = {
+      email: forgotPass.email,
+      clientURI: 'http://localhost:4200/authentication/resetpassword'
+    }
+    this._authService.forgotPassword('api/accounts/forgotpassword', forgotPassDto)
+    .subscribe({
+      next: (_) => {
+      this.showSuccess = true;
+      this.successMessage = 'The link has been sent, please check your email to reset your password.'
+    },
+    error: (err: HttpErrorResponse) => {
+      this.showError = true;
+      this.errorMessage = err.message;
+    }})
 }
