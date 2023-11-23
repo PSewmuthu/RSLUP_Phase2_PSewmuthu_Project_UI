@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     });
   }
   login() {
-    this.http.get<any>('http://localhost:3000/signup').subscribe(
+    this.http.get<any>('http://localhost:3000/login').subscribe(
       (res) => {
         const user =
           res.email === this.formValue.value.email &&
