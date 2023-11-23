@@ -16,6 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { NgToastModule } from 'ng-angular-popup';
+import { UsersComponent } from './users/users.component';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { NgToastModule } from 'ng-angular-popup';
     MaterialComponent,
     RestuarentdashComponent,
     SignupComponent,
+    UsersComponent,
+    ViewUserComponent,
   ],
   imports: [
     BrowserModule,
