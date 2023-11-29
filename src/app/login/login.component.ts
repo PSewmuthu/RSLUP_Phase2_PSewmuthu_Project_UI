@@ -45,9 +45,7 @@ export class LoginComponent implements OnInit {
             'token',
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
           );
-          this.formValue.value.email
-            ? localStorage.setItem('usertype', 'employee')
-            : '';
+          this.formValue.value.email ? localStorage.setItem('usertype', 'employee') : '';
         } else {
           // alert('User not found with these credentials');
           this.toast.error({
@@ -83,22 +81,4 @@ export class LoginComponent implements OnInit {
       buttonRef?.click();
     }
   }
-
-  public forgotPassword = (forgotPasswordFormValue) => {
-    this.showError = this.showSuccess = false;
-    const forgotPass = { ...forgotPasswordFormValue };
-    const forgotPassDto: ForgotPasswordDto = {
-      email: forgotPass.email,
-      clientURI: 'http://localhost:4200/authentication/resetpassword'
-    }
-    this._authService.forgotPassword('api/accounts/forgotpassword', forgotPassDto)
-    .subscribe({
-      next: (_) => {
-      this.showSuccess = true;
-      this.successMessage = 'The link has been sent, please check your email to reset your password.'
-    },
-    error: (err: HttpErrorResponse) => {
-      this.showError = true;
-      this.errorMessage = err.message;
-    }})
 }
