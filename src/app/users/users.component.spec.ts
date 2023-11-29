@@ -1,21 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AppComponent } from '../app.component';
 import { UsersComponent } from './users.component';
 
-describe('UsersComponent', () => {
-  let component: UsersComponent;
-  let fixture: ComponentFixture<UsersComponent>;
+describe('AppComponent', () => {
+  let fixture: UsersComponent;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [UsersComponent]
-    });
-    fixture = TestBed.createComponent(UsersComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture = new UsersComponent();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should have a title User Mangement', () => {
+    expect(fixture.title).toEqual('User Management');
   });
 });

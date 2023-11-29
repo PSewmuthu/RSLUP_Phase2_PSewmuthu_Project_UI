@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class UsersComponent implements OnInit {
   loading = false;
   profile!: Profile;
+  title = 'User Management';
 
   @Input()
   session!: AuthSession;
