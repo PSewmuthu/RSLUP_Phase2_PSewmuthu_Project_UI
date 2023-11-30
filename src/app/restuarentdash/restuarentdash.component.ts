@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./restuarentdash.component.scss'],
 })
 export class RestuarentdashComponent implements OnInit {
-  lat: number = 14.0616;
-  lng: number = 121.5721;
   frameZone: any;
 
   constructor(public el: ElementRef) {}
@@ -29,7 +27,6 @@ export class RestuarentdashComponent implements OnInit {
   }
 
   goToMenu(): void {
-    let div = document.getElementById('about-restaurant').offsetTop;
     window.scrollTo({ left: 0, top: div - 80, behavior: 'smooth' });
   }
 }
