@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    await this.getProfile();
+    await this.getProfile(); // get user profile on initial load
 
     const { username, website, avatar_url } = this.profile;
     this.updateProfileForm.patchValue({

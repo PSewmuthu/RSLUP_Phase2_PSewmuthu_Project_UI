@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
   }
   signup() {
     this.http
-      .post<any>('http://localhost:3000/signup', this.myform.value)
+      .post<any>('http://localhost:3000/signup', this.myform.value) // this.myform.value is the data that we are sending to the server
       .subscribe(
         (res) => {
           alert('You are registered Successfully !');
@@ -34,8 +34,8 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['login']);
         },
         (error) => {
-          alert('Something went wrong!!!');
-        }
+          alert('Something went wrong!!!'); // if the server is not running then this error will be shown
+        },
       );
   }
 }

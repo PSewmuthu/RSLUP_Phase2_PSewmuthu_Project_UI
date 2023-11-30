@@ -68,17 +68,17 @@ export class LoginComponent implements OnInit {
 
   checkValidEmail(event: string) {
     const value = event;
-    const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;
+    const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/; // regular expression for email validation
     this.isValidEmail = pattern.test(value);
     return this.isValidEmail;
   }
 
   confirmToSend() {
     if (this.checkValidEmail(this.resetPasswordEmail)) {
-      console.log(this.resetPasswordEmail);
+      console.log(this.resetPasswordEmail); // send email to backend
       this.resetPasswordEmail = '';
       const buttonRef = document.getElementById('closeBtn');
-      buttonRef?.click();
+      buttonRef?.click(); // close modal
     }
   }
 }
