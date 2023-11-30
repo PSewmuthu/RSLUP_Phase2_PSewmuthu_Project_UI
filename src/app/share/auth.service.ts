@@ -6,6 +6,6 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   constructor() {}
   isLoggedIn() {
-    return !!localStorage.getItem('token');
+    return !!localStorage.getItem('token'); // if token is present then return true else false
   }
 }

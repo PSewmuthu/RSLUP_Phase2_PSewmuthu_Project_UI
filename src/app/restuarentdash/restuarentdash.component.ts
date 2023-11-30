@@ -17,7 +17,7 @@ export class RestuarentdashComponent implements OnInit {
 
     this.frameZone.forEach((anchor) => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+        e.preventDefault(); // prevent default anchor behavior
 
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth',
@@ -27,6 +27,6 @@ export class RestuarentdashComponent implements OnInit {
   }
 
   goToMenu(): void {
-    window.scrollTo({ left: 0, top: div - 80, behavior: 'smooth' });
+    window.scrollTo({ left: 0, top: div - 80, behavior: 'smooth' }); // 80 is the height of the navbar
   }
 }
